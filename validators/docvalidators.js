@@ -5,7 +5,8 @@ export const registerDoctorValidator = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
   confirmPassword: Joi.ref("password"),
-  specialty: Joi.string().valid()
+  specialty: Joi.string().valid(),
+  
 }).with("password", "confirmPassword");
 
 export const loginDoctorValidator = Joi.object({

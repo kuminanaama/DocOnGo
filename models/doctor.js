@@ -5,5 +5,7 @@ const DoctorSchema = new Schema({
   email :{type : String,  required :true , unique:true},
   password :{ type: String , required: true},
   specialty: {type: String, enum: ['General Physician', 'Public Health','Paediatrician','Gynaecologist']},
+  verificationCode : { type:String },
+  verified: {type:Boolean , default: false}
 })
 export const DoctorModel = model ('Doctor',DoctorSchema)
