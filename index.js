@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import PatientRouter from "./routes/patroutes.js";
 import DoctorRouter from "./routes/docroutes.js";
+import cors from "cors";
 
 async function connectToDatabase() {
   try {
@@ -16,6 +17,7 @@ await connectToDatabase();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/v1", PatientRouter);
 app.use("/api/v1/", DoctorRouter);
