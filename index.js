@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import PatientRouter from "./routes/patroutes.js";
 import DoctorRouter from "./routes/docroutes.js";
 import cors from "cors";
+import PostRouter from "./routes/postroutes.js";
+
 
 async function connectToDatabase() {
   try {
@@ -19,8 +21,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
 app.use("/api/v1", PatientRouter);
 app.use("/api/v1/", DoctorRouter);
+app.use("/api/v1/", PostRouter);
 
 const port = process.env.PORT || 3039;
 app.listen(port, () => {

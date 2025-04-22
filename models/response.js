@@ -2,9 +2,9 @@ import {Schema ,model,Types} from "mongoose";
 
 
 const responseSchema = new Schema({
-    post: {
+    request: {
     type: Types.ObjectId,
-    ref: 'Post',
+    ref: 'post',
     required: true
     },
     doctor: {
@@ -12,14 +12,36 @@ const responseSchema = new Schema({
         ref: 'Doctor',
         required: true
     },
-        content: {
+        diagnosis: {
         type: String,
         required: true
      },
 
-     prescription :{
+     prescription :[{
+        medication: {
+            type:String
+         },
+        dosage : {
+            type:String,
+
+        },
+        duration: {
+            type: String
+        }
+     }],
+
+     image: {
+        type: String,
+      },
+
+    referral:{
         type:String
-     }
+    },
+    
+    referral_reason :{
+        type:String
+},
+
 
     },{timestamps:true
 });
